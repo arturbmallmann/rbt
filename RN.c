@@ -217,13 +217,11 @@ RNtree* VerificaRN(RNtree* t,int key)
     if( key < x->key ) x = x->esq;
     else x = x->dir;
   };
-  RNtree* b = v->pai;//bisavô, se houver! :D
-  // x contêm o novo e p o pai do novo.
+  RNtree* b = v->pai;//bisavô
 
   if(p->red == 0) // pai preto- caso 1
   	return t;
-
-//pai vermelho - caso 2
+				//pai vermelho - caso 2
   bool pdir = p->key > v->key;
   bool xdir = x->key > p->key;
   if( v != NodoNULL) { // pai não é raiz - Caso 2.1
@@ -242,7 +240,6 @@ RNtree* VerificaRN(RNtree* t,int key)
               	base = RotacaoSimplesDir(v);
 			else
 				base = RotacaoSimplesEsq(v);
-//			v->pai=base;
 	} else {
 			trocaCor(v);
 			trocaCor(x);
@@ -252,7 +249,7 @@ RNtree* VerificaRN(RNtree* t,int key)
 				RotacaoSimplesDir(aux->pai);
 			}else{
 				aux = RotacaoSimplesDir(p);
-				base=RotacaoSimplesEsq(aux->pai);
+				RotacaoSimplesEsq(aux->pai);
         	}
 			base=x;
 		}
