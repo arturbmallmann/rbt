@@ -250,8 +250,6 @@ RNtree* VerificaRN(RNtree* t,int key)
 			if(!pdir){
 				aux = RotacaoSimplesEsq(p);
 				RotacaoSimplesDir(aux->pai);
-				printf("parcial: ");Desenha(x,0);
-				putc('\n',stdout);
 			}else{
 				aux = RotacaoSimplesDir(p);
 				base=RotacaoSimplesEsq(aux->pai);
